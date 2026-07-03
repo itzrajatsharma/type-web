@@ -10,12 +10,36 @@ let fourtext=document.querySelector(".fourtext");
 let easy=document.querySelector(".easy");
 let intermediate=document.querySelector(".intermediate");
 let master=document.querySelector(".master");
+let code=document.querySelector(".code");
+let cyber=document.querySelector(".cyber");
+let container=document.querySelector(".container");
+let right=document.querySelector(".right");
+let box=document.querySelectorAll(".box");
+let timebar=document.querySelector(".timebar");
+
+let left=document.querySelector(".left");
 let timer;
 let  accuracycount = 0;
 let currentindex = 0;
    let  time=0;
    let  timestart=false;
-
+   let c=0;
+if(window.innerWidth <= 768){
+    document.body.innerHTML = `
+        <div style="
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:black;
+            color:white;
+            font-size:24px;
+            text-align:center;
+        ">
+            🚫 Please open this typing website on a desktop or laptop for the best experience.
+        </div>
+    `;
+}
 
 
 
@@ -29,6 +53,28 @@ let pargraph = ["The quick brown fox jumps over the lazy dog. This sentence cont
 let count;
 let span;
 easy.addEventListener("click",()=>{
+      container.style.backgroundImage='url("easy.jpg")';
+      para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+      
+      right.style.backgroundSize = "cover";
+right.style.backgroundPosition = "center";
+right.style.backgroundRepeat = "no-repeat";
+      left.style.backgroundColor="transparent";
+    
+     right.style.border="none";
+    left.style.border="none";
+    timebar.style.backgroundColor="transparent";
+    box.forEach(box=>{
+         box.style.backgroundColor="transparent";
+
+    })
+   
+     box.forEach(box=>{
+         box.style.borderColor="grey";
+
+    })
+    c=0;
     console.log("hello");
      pargraph = [
   "The quick brown fox jumps over the lazy dog.",
@@ -51,6 +97,19 @@ display();
 
 });
 intermediate.addEventListener("click",()=>{
+      container.style.backgroundImage='url("ine.png")';
+       para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+        left.style.backgroundColor="transparent";
+        timebar.style.backgroundColor="transparent";
+     right.style.border="none";
+    left.style.border="none";
+     box.forEach(box=>{
+         box.style.borderColor="grey";
+         box.style.backgroundColor="transparent";
+
+    })
+    c=0;
     pargraph  = [
   "Learning to type efficiently requires consistent practice and patience. Many beginners focus entirely on speed, but experienced typists understand that accuracy is equally important. Developing proper finger placement and maintaining good posture can significantly improve both comfort and performance during long typing sessions. Over time, repeated practice builds muscle memory and allows users to type naturally without looking at the keyboard.",
 
@@ -101,6 +160,23 @@ currentindex = 0;      // reset typing position
 display();
 })
 master.addEventListener("click",()=>{
+     container.style.backgroundImage='url("master.png")';
+    para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+        left.style.backgroundColor="transparent";
+        timebar.style.backgroundColor="transparent";
+
+
+     
+
+    c=0;
+     right.style.border="none";
+      box.forEach(box=>{
+         box.style.borderColor="grey";
+         box.style.backgroundColor="transparent";
+
+    })
+    left.style.border="none";
     pargraph  = [
   "Artificial intelligence, computational neuroscience, and quantum information theory collectively represent some of the most intellectually demanding disciplines of the twenty-first century. Researchers investigating these fields frequently encounter extraordinarily complex mathematical frameworks, interdisciplinary methodologies, and computational limitations that require exceptional analytical capabilities and persistent experimentation.",
 
@@ -131,10 +207,234 @@ currentindex = 0;      // reset typing position
 
 })
 
+let r=0;
+function codedisplay(){
+     count = 0;
+        let timebox = document.querySelector(".timebox").innerHTML = time + "sec";
+    // two.style.display = "none";
+    // next.style.display="none";
+    // timebox.style.display = "none";
+    para.innerHTML = "";
+    let pre=document.createElement("pre");
+    let currentparaindex = Math.floor(Math.random() * pargraph.length);
+
+     let chars = pargraph[currentparaindex].split("");
+    chars.forEach(char => {
+        let span = document.createElement("span");
+        span.id="pre";
+        console.log(JSON.stringify(char));
+        if (char === " ") {
+            count += 1;
+            //   span.style.marginLeft = "0px";
+            // // span.innerHTML="&nbsp";
+             span.style.minWidth = "2px";
+             span.style.minHeight = "25px";
+        }
+//      else  if (char === "\n") {
+//     span.style.display = "inline-block";
+//     span.style.width = "4px";
+//     span.style.height = "1em";
+//      span.style.verticalAlign = "bottom";
+// }
+
+        span.textContent = char;
+        pre.append(span);
+
+       
+        
+
+    })
+  
+    para.append(pre);
+      span = para.querySelectorAll("span");
+      r=1;
+
+}
+code.addEventListener("click",()=>{
+
+     container.style.backgroundImage='url("code.png")';
+    para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+        left.style.backgroundColor="transparent";
+        timebar.style.backgroundColor="transparent";
+
+    c=0;
+     right.style.border="none";
+      box.forEach(box=>{
+         box.style.borderColor="grey";
+         box.style.backgroundColor="transparent";
+
+    })
+    left.style.border="none";
+    pargraph= [
+`console.log("Hello, World!");
+
+function add(a, b) {
+    return a + b;
+}
+
+let result = add(5, 10);
+console.log(result);`,
+
+`#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 5, b = 10;
+    cout << a + b << endl;
+    return 0;
+}`,
+
+`public class Main {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 10;
+        System.out.println(a + b);
+    }
+}`,
+
+`def add(a, b):
+    return a + b
+
+result = add(5, 10)
+print(result)`,
+
+`function add(a, b) {
+    return a + b;
+}
+
+const result = add(5, 10);
+console.log(result);`,
+
+`<?php
+function add($a, $b) {
+    return $a + $b;
+}
+
+echo add(5, 10);
+?>`,
+
+`using System;
+
+class Program {
+    static void Main() {
+        int a = 5;
+        int b = 10;
+        Console.WriteLine(a + b);
+    }
+}`,
+
+`package main
+
+import "fmt"
+
+func main() {
+    a := 5
+    b := 10
+    fmt.Println(a + b)
+}`,
+
+`fn main() {
+    let a = 5;
+    let b = 10;
+    println!("{}", a + b);
+}`,
+
+`let a = 5
+let b = 10
+print(a + b)`,
+
+`a = 5
+b = 10
+puts a + b`,
+
+`let a = 5
+let b = 10
+println(a + b)`,
+
+`SELECT name, age
+FROM users
+WHERE age > 18
+ORDER BY age DESC;`,
+
+`<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p>Welcome!</p>
+</body>
+</html>`,
+
+`body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}`,
+
+`{
+    "name": "Rajat",
+    "age": 20,
+    "skills": ["HTML", "CSS", "JavaScript"]
+}`,
+
+`<note>
+    <to>User</to>
+    <from>System</from>
+    <message>Hello World</message>
+</note>`,
+
+`const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
+app.listen(3000);`,
+
+`class Person {
+    constructor(name) {
+        this.name = name;
+    }
+
+    greet() {
+        return \`Hello, \${this.name}\`;
+    }
+}
+
+const user = new Person("Rajat");
+console.log(user.greet());`
+];
+
+currentindex=0;
+   accuracycount = 0;     // reset errors
+    time = 0;              // reset timer
+    timestart = false;
+    clearInterval(timer);
+   codedisplay();
+
+
+
+
+})
+
+ 
+
+
 
 
 function display() {
+    r=0;
      count = 0;
+        let timebox = document.querySelector(".timebox").innerHTML = time + "sec";
     // two.style.display = "none";
     // next.style.display="none";
     // timebox.style.display = "none";
@@ -144,6 +444,7 @@ function display() {
     let chars = pargraph[currentparaindex].split("");
     chars.forEach(char => {
         let span = document.createElement("span");
+        span.id="display";
         if (char === " ") {
             count += 1;
             span.style.marginLeft = "15px";
@@ -153,7 +454,7 @@ function display() {
         }
 
 
-        span.innerHTML = char;
+        span.textContent = char;
 
         para.append(span);
         
@@ -187,7 +488,7 @@ function typing() {
             timestart = true;
         }
 
-        if (currentindex == span.length-1 ) {
+        if (currentindex >=span.length-1 ) {
             
             clearInterval(timer);
             let wpm = Math.floor((count / time) * 60);
@@ -199,37 +500,85 @@ function typing() {
             // two.style.display = "flex";
 
             // next.style.display = "flex";
-            threetext.innerHTML=`<h3>Word</h3><h1>${count}</h1><h3>typed</h3>`
+            threetext.innerHTML=`<h3>Word</h3><h1>${count+1}</h1><h3>typed</h3>`
             fourtext.innerHTML=`<h3>Error</h3><h1>${accuracycount}</h1>`;
             return;
         }
+      
 
-        if (e.key.length > 1) {
-            return;
-        }
+       let pressed = e.key;
 
-        if (span[currentindex]) {
-
-            if (e.key === span[currentindex].textContent) {
-                span[currentindex].style.color = "green";
-
-                span[currentindex].classList.remove("active");
-
-
-                currentindex++;
-                if (span[currentindex]) {
-                    span[currentindex].classList.add("active");
-                }
-            }
-            else {
-                span[currentindex].style.color = "red"
-                accuracycount += 1;
-            }
-        }
-
-
-    })
+if (pressed === "Enter") {
+    pressed = "\n";
 }
+
+if (pressed === "Tab") {
+    e.preventDefault();
+    pressed = "\t";
+}
+
+if (
+    pressed !== "\n" &&
+    pressed !== "\t" &&
+    pressed.length > 1
+) {
+    return;
+}
+
+if (span[currentindex]) {
+
+   if (pressed === span[currentindex].textContent) {
+    if(c==1){
+        span[currentindex].style.color = "#ADFF2F";
+        //  container.style.backgroundColor="#112011";
+    span[currentindex].classList.remove("cyberactive");
+    // right.style.backgroundColor="#111111";
+
+    }
+else{
+    span[currentindex].style.color = "white";
+    span[currentindex].classList.remove("active");
+}
+
+    currentindex++;
+
+    // IMPORTANT FIX: skip newline automatically
+    while (
+        span[currentindex] &&
+        span[currentindex].textContent === "\n"
+    ) {
+        if(c==1){
+            span[currentindex].classList.remove("cyberactive");
+
+        }
+        else{
+        span[currentindex].classList.remove("active");
+        }
+         currentindex++;
+    }
+
+    if (span[currentindex]) {
+        if(c==1){
+              span[currentindex].classList.add("cyberactive");
+
+        }
+        else{
+        span[currentindex].classList.add("active");
+        }
+        return;
+    }
+
+   
+} else {
+        span[currentindex].style.color = "red";
+        accuracycount++;
+    }
+}
+});
+}
+
+    
+
 typing();
 next.addEventListener("click", () => {
     console.log("next");
@@ -240,48 +589,85 @@ next.addEventListener("click", () => {
     clearInterval(timer);
     timestart=false;
 
-    display();
+  
+    if(r==1){
+        codedisplay();
+        console.log("code");
+    }
+    
+    else{
+          display();
+    }
+    if(c==1){
+        let span=para.querySelectorAll("span");
+span.forEach(span=>{
+    span.style.color="#00FF41";
+    span.style.fontFamily="Share Tech Mono, monospace";
+    span.classList.remove("active");
+    span.classList.remove("cyberactive");
+    span.style.fontSize="15px";
+    span.style.marginLeft="2px";
+    
+})
+
+
+    }
      
         
 
 })
 
 
-// let start = document.querySelector(".start");
 
-// start.addEventListener("click", () => {
-//     start.blur();
-//     let tim = 5;
-//     console.log("start");
-        
+let body=document.querySelector("body");
+
+cyber.addEventListener("click",()=>{
+    timebar.style.backgroundColor="transparent";
+    para.style.borderColor="grey"
+    container.style.backgroundImage = 'url("backgroundtypeweb.png")';
+container.style.backgroundSize = "cover";
+container.style.backgroundPosition = "center";
+// container.style.backgroundRepeat = "no-repeat";
+left.style.backgroundColor="transparent";
+right.style.backgroundColor="transparent";
+// container.style.backgroundColor="transparent";
+para.style.backgroundColor="transparent";
+  
+    
+   currentindex = 0;
+     time=0;
+    
+    //  timestart=;
+    clearInterval(timer);
+    timestart=false;
+     let timebox = document.querySelector(".timebox").innerHTML = time + "sec";
+    //  timestart=;
+    clearInterval(timer);
+    timestart=false;
+    
+    c=1;
+    //  para.style.backgroundColor="#111111";
+
+    right.style.border="1px solid #00ff41";
+    left.style.border="1px solid#39FF14";
+    
+    box.forEach(box=>{
+         box.style.borderColor="#00AA00";
+
+    })
+
+    
+let span=para.querySelectorAll("span");
+span.forEach(span=>{
+    span.style.color="#00FF41";
+    span.style.fontFamily="Share Tech Mono, monospace";
+    span.classList.remove("active");
+    span.classList.remove("cyberactive");
+    span.style.fontSize="15px";
+    span.style.marginLeft="2px";
+    
+})
 
 
 
-
-    // next.style.display = "none";
-    // overlay.style.display = "flex";
-//     let timer2 = setInterval(() => {
-//         // overlay.innerHTML = `<h1>${tim}</h1>`;
-
-
-//         if (tim <= 0) {
-//             overlay.innerHTML = `<h1>start !</h1>`;
-
-//             overlay.innerHTML = "";
-//             overlay.style.display = "none";
-//             clearInterval(timer2);
-           
-           
-//         }
-//         tim--;
-//     }, 1000);
-
-
-
-
-// })
-
-
-
-
-
+})
