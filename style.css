@@ -32,6 +32,8 @@ body{
 }
 .left{
     background-color: #090e15;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
     height: 100%;
     width:25%;
     position: absolute;
@@ -162,6 +164,7 @@ body{
     border: .5px solid #271858;
     overflow-y: auto;
     overflow-x: hidden;
+    backdrop-filter: blur(15px);
 }
 .para::-webkit-scrollbar{
     display: none;
@@ -181,6 +184,7 @@ body{
     width:23%;
 
     background-color:#090d15;
+    backdrop-filter: blur(15px);
     border: .5px solid grey;
     border-radius: 8px;
     display: flex;
