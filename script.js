@@ -25,8 +25,10 @@ let accuracyboxcomp=document.querySelector(".accuracybox");
 let wpmboxcomp=document.querySelector(".wpmboxcomp");
 let compint=0;
 let left=document.querySelector(".left");
+let light=document.querySelector(".light");
 let timer;
 let  accuracycount = 0;
+let lightonn=document.querySelector(".lightonn");
 let currentindex = 0;
    let  time=0;
    let  timestart=false;
@@ -59,7 +61,25 @@ let pargraph = ["The quick brown fox jumps over the lazy dog. This sentence cont
 ]
 let count;
 let span;
+  let lightcount=0;
+light.addEventListener("click",()=>{
+    (lightcount/2==0)
+      container.style.backgroundImage="none";
+      left.style.border="";
+      light.style.display="none";
+      lightonn.style.display="block";
+      console.log("lightif");
+      lightcount++;
+    }
+    
+    
+
+)
+
 easy.addEventListener("click",()=>{
+  
+    light.style.display="block";
+    lightonn.style.display="none";
     compint=0;
       container.style.backgroundImage='url("easy.jpg")';
        comp.style.display="none";
@@ -82,6 +102,7 @@ right.style.backgroundRepeat = "no-repeat";
    
      box.forEach(box=>{
          box.style.borderColor="grey";
+         box.style.display="none";
 
     })
     c=0;
@@ -104,9 +125,32 @@ currentindex = 0;      // reset typing position
     timestart = false;
     clearInterval(timer);
 display();
+lightonn.addEventListener("click",()=>{
+    lightonn.style.display="none";
+    light.style.display="block";
+        left.style.display="";
+         container.style.backgroundImage='url("easy.jpg")';
+              comp.style.display="none";
+    right.style.display="";
+      para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+      
+      right.style.backgroundSize = "cover";
+right.style.backgroundPosition = "center";
+right.style.backgroundRepeat = "no-repeat";
+      left.style.backgroundColor="transparent";
+    
+     right.style.border="none";
+    left.style.border="none";
+    timebar.style.backgroundColor="transparent";
+
+})
+
 
 });
 intermediate.addEventListener("click",()=>{
+    light.style.display="block";
+    lightonn.style.display="none";
       container.style.backgroundImage='url("ine.png")';
        comp.style.display="none";
     right.style.display="";
@@ -120,6 +164,7 @@ intermediate.addEventListener("click",()=>{
      box.forEach(box=>{
          box.style.borderColor="grey";
          box.style.backgroundColor="transparent";
+         box.style.display="none";
 
     })
     c=0;
@@ -171,8 +216,30 @@ currentindex = 0;      // reset typing position
     clearInterval(timer);
 
 display();
+lightonn.addEventListener("click",()=>{
+    lightonn.style.display="none";
+    light.style.display="block";
+        left.style.display="";
+         container.style.backgroundImage='url("ine.png")';
+              comp.style.display="none";
+    right.style.display="";
+      para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+      
+      right.style.backgroundSize = "cover";
+right.style.backgroundPosition = "center";
+right.style.backgroundRepeat = "no-repeat";
+      left.style.backgroundColor="transparent";
+    
+     right.style.border="none";
+    left.style.border="none";
+    timebar.style.backgroundColor="transparent";
+
+})
 })
 master.addEventListener("click",()=>{
+    light.style.display="block";
+    lightonn.style.display="none";
      container.style.backgroundImage='url("master.png")';
      compint=0;
       comp.style.display="none";
@@ -190,6 +257,7 @@ master.addEventListener("click",()=>{
       box.forEach(box=>{
          box.style.borderColor="grey";
          box.style.backgroundColor="transparent";
+         box.style.display="none";
 
     })
     left.style.border="none";
@@ -220,6 +288,26 @@ currentindex = 0;      // reset typing position
     timestart = false;
     clearInterval(timer);
     display();
+    lightonn.addEventListener("click",()=>{
+    lightonn.style.display="none";
+    light.style.display="block";
+        left.style.display="";
+         container.style.backgroundImage='url("easy.jpg")';
+              comp.style.display="none";
+    right.style.display="";
+      para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+      
+      right.style.backgroundSize = "cover";
+right.style.backgroundPosition = "center";
+right.style.backgroundRepeat = "no-repeat";
+      left.style.backgroundColor="transparent";
+    
+     right.style.border="none";
+    left.style.border="none";
+    timebar.style.backgroundColor="transparent";
+
+})
 
 })
 
@@ -269,6 +357,8 @@ function codedisplay(){
 
 }
 code.addEventListener("click",()=>{
+    light.style.display="block";
+    lightonn.style.display="none"
     comp.style.display="none";
     right.style.display="";
     compint=0;
@@ -284,6 +374,7 @@ code.addEventListener("click",()=>{
       box.forEach(box=>{
          box.style.borderColor="grey";
          box.style.backgroundColor="transparent";
+         box.style.display="none";
 
     })
     left.style.border="none";
@@ -441,6 +532,26 @@ currentindex=0;
     timestart = false;
     clearInterval(timer);
    codedisplay();
+   lightonn.addEventListener("click",()=>{
+    lightonn.style.display="none";
+    light.style.display="block";
+        left.style.display="";
+         container.style.backgroundImage='url("code.png")';
+              comp.style.display="none";
+    right.style.display="";
+      para.style.backgroundColor="transparent";
+      para.style.backgroundColor = "rgba(0,0,0,0.7)";
+      
+      right.style.backgroundSize = "cover";
+right.style.backgroundPosition = "center";
+right.style.backgroundRepeat = "no-repeat";
+      left.style.backgroundColor="transparent";
+    
+     right.style.border="none";
+    left.style.border="none";
+    timebar.style.backgroundColor="transparent";
+
+})
 
 
 
@@ -516,11 +627,13 @@ function typing() {
     wpmboxcomp.style.display="";
         wpmbox.innerHTML= `<h3>WPM<h3><h1>${Math.floor(wpmcountcomp/5)}</h1>`;
            accuracybox.innerHTML= `<h3>Accuracy</h3><h1>${accucomp}%</h1>`;
-            if(Number(inputcom.value) > wpm){
+            if(Number(inputcom.value) > wpmcountcomp){
                 alert("your time is expired, you do not reach your target try again ");
+                
             }
-            else if(Number(inputcom.value) < wpm){
+            else if(Number(inputcom.value) < wpmcountcomp){
                 alert("your time is expired ,you reach your target congratulations");
+              
 
             }
             else{
@@ -735,6 +848,8 @@ span.forEach(span=>{
 let body=document.querySelector("body");
 
 cyber.addEventListener("click",()=>{
+    light.style.display="none";
+    lightonn.style.display="none";
     timebar.style.backgroundColor="transparent";
     comp.style.display="none";
     right.style.display="";
